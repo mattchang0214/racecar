@@ -36,7 +36,7 @@ if __name__ == "__main__":
         while True:
             runMotor(MOTOR1, MOTOR2, "f")
             runMotor(MOTOR3, MOTOR4, "f")
-            time.sleep(1)
+            time.sleep(3)
             runMotor(MOTOR1, MOTOR2)
             runMotor(MOTOR3, MOTOR4)
             time.sleep(2)
