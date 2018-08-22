@@ -3,9 +3,10 @@
 import time
 import RPi.GPIO as GPIO
 
-MOTOR1 = 12
-MOTOR2 = 13
-
+MOTOR1 = 13 # bottom motor pin
+MOTOR2 = 19 # top motor pin
+MOTOR3 = 20 # top motor pin
+MOTOR4 = 16 # bottom motor pin
 
 def setup(*pins):
     GPIO.setmode(GPIO.BCM)
@@ -28,19 +29,17 @@ def runMotor(pin1, pin2, direction="s"):
         GPIO.output(pin2, GPIO.LOW)
 
 if __name__ == "__main__":
-    setup(MOTOR1, MOTOR2)
+    setup(MOTOR1, MOTOR2, MOTOR3, MOTOR4)
     print("Starting")
     
     try:
         while True:
             runMotor(MOTOR1, MOTOR2, "f")
-            time.sleep(3)
-            runMotor(MOTOR1, MOTOR2)
+            runMotor(MOTOR3, MOTOR4, "f")
             time.sleep(1)
-            runMotor(MOTOR1, MOTOR2, "r")
-            time.sleep(3)
             runMotor(MOTOR1, MOTOR2)
-            time.sleep(1)
+            runMotor(MOTOR3, MOTOR4)
+            time.sleep(2)
     except KeyboardInterrupt:
         pass
     finally:
