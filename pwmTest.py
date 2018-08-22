@@ -34,4 +34,6 @@ if __name__ == "__main__":
         pass
     finally:
         print("Exiting")
+        pwm1.stop()
+        pwm2.stop()
         GPIO.cleanup()
