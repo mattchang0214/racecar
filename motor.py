@@ -3,18 +3,23 @@
 import time
 import RPi.GPIO as GPIO
 
+# define constants
 MOTOR1 = 13 # bottom motor pin
 MOTOR2 = 19 # top motor pin
 MOTOR3 = 20 # top motor pin
 MOTOR4 = 16 # bottom motor pin
 
+# define in/out pins
 def setup(*pins):
+	# use Broadcom SOC channel numbers
     GPIO.setmode(GPIO.BCM)
     
+    # set all pins to output and low
     for pin in pins:
         GPIO.setup(pin, GPIO.OUT)
         GPIO.output(pin, GPIO.LOW)
 
+# f for forward, r for reverse, s for stop
 def runMotor(pin1, pin2, direction="s"):
     if direction == "f":
         GPIO.output(pin1, GPIO.HIGH)
