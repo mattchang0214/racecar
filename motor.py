@@ -11,7 +11,7 @@ MOTOR4 = 16 # bottom motor pin
 
 # define in/out pins
 def setup(*pins):
-	# use Broadcom SOC channel numbers
+    # use Broadcom SOC channel numbers
     GPIO.setmode(GPIO.BCM)
     
     # set all pins to output and low
