@@ -34,7 +34,7 @@ with PiCamera() as camera:
     cv2.waitKey(0)
     
     # binarize the image with thresholds
-    cv2.inRange(grey_img, 0, 20, grey_img)
+    cv2.inRange(grey_img, 0, 100, grey_img)
     cv2.imshow("Threshold Image", grey_img)
     cv2.waitKey(0)
 	
