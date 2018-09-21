@@ -32,11 +32,13 @@ with PiCamera() as camera:
     grey_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     cv2.imshow("Grey Image", grey_img)
     cv2.waitKey(0)
+    print(grey_img)
     
     # binarize the image with thresholds
-    cv2.inRange(grey_img, 0, 100, grey_img)
+    cv2.inRange(grey_img, 0, 50, grey_img)
     cv2.imshow("Threshold Image", grey_img)
     cv2.waitKey(0)
+    print(grey_img)
 	
     # close small holes in object
     cv2.morphologyEx(grey_img, cv2.MORPH_CLOSE, _KERNEL, grey_img)
