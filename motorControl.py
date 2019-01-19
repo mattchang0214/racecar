@@ -54,12 +54,16 @@ class motorControl:
         else:
             vel1 = abs(self._CONSTANT2 * y_vel)
             vel2 = vel1
+        
+        if vel1 < 22 and vel2 < 22:
+            vel1 = 22
+            vel2 = 22
 
         print("vel: ({0},{1})".format(vel1, vel2))
-        # self.pwm[pinIndex1].ChangeDutyCycle(vel1)
-        # self.pwm[pinIndex2].ChangeDutyCycle(vel2)
-        # self.pwm[abs(pinIndex1-1)].ChangeDutyCycle(0)
-        # self.pwm[abs(pinIndex2-3)+2].ChangeDutyCycle(0)
+        self.pwm[pinIndex1].ChangeDutyCycle(vel1)
+        self.pwm[pinIndex2].ChangeDutyCycle(vel2)
+        self.pwm[abs(pinIndex1-1)].ChangeDutyCycle(0)
+        self.pwm[abs(pinIndex2-3)+2].ChangeDutyCycle(0)
 
 if __name__ == '__main__':
     with motorControl([13, 19], [20, 16]) as motCon:
